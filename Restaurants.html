@@ -1,51 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Restaurant List</title>
-	<style>
-		.container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			margin-top: 20px;
-		}
-		.restaurant {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin: 10px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			box-shadow: 0px 0px 5px #ccc;
-		}
-		.restaurant img {
-			max-width: 100%;
-			max-height: 200px;
-			object-fit: cover;
-			border-radius: 5px;
-			margin-bottom: 10px;
-		}
-		.restaurant-name {
-			font-size: 20px;
-			font-weight: bold;
-			margin-bottom: 5px;
-		}
-		.restaurant-type {
-			font-size: 16px;
-			margin-bottom: 5px;
-		}
-		.restaurant-rating {
-			font-size: 14px;
-			color: #666;
-		}
-	</style>
+    <title>Restaurant List</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
-	<h1>Restaurant List</h1>
-	<div class="container">
-		
-	</div>
+<body class="body">
+    <nav class="navbar">
+        <div class="navlist-left">
+            <div class="logoo"><a href="main.html"><img class="logo" src="logo-png.png" alt="Logo"></a></div>
+            <ul class="list">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="Restaurants.html">Restaurants</a></li>
+                <li><a href="#Order">Order</a></li>
+                <li><a href="/starbucks.html/pay.html">Pay</a></li>
+                <li><a href="#Store">Store</a></li>
+            </ul>
+        </div>
+        <div class="navlist-right">
+            <div class="searchbox"><input type="search" class="search" placeholder="  Looking for something specific"></div>
+            <img src="profiel.png" class="profileicon">
+        </div>
+    </nav>
+    <div class="header">
+        <h2>A world of rewards awaits you! sign up now</h2>
+        <div class="know"><button type="menu" class="know1"><b>Know More</b></button></div>
+    </div>
+    <div class="menu">
+        <h2 class="h2"><b>CUISINES</b></h2>
+        <div class="listitems">
+            <div class="item1">
+                <div class="product"align="center">
+                    <img _ngcontent-kwr-c168=""  width=" 110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
+                        src="NORTHINDIAN.jpg">
+                </div>    
+                <div align="center"class="product">    
+                    <p>NORTH INDIAN CUISINES</p>
+                </div>
+            </div>
+            <div class="item2">
+                <div align="center"class="product">
+                    <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
+                        src="SOUTH.jpg">
+                </div>
+                <div align="center"class="product">      
+                    <p>SOUTH INDIAN CUISINES</p>
+                </div>
+            </div>
+            <div class="item3">
+                <div align="center"class="product">
+                    <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
+                    src="OIP.jpg">
+                </div>
+                <div align="center"class="product">
+                    <p>CHINESE CUISINES</p>
+                </div>
+            </div>
+            <div class="item4">
+                <div align="center"class="product">
+                    <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
+                        src="ITALIAN.jpg">
+                </div>
+                <div align="center"class="product">    
+                    <p>ITALIAN  CUISINES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Restaurant List</h1>
+    <div class="container"></div>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .restaurant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #ccc;
+        }
+        .restaurant img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .restaurant-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .restaurant-type {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .restaurant-rating {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </body>
 </html>

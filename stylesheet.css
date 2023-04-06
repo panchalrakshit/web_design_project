@@ -17,6 +17,11 @@
     padding-top: 15px;
     width: 40px;
 }
+.logo:hover {
+    transform: scale(1.10);
+    transition: transform 0.2s ease-in-out;
+  }
+  
 .navlist-left{
     display:flex;
     height: 70px;
