@@ -1,10 +1,6 @@
 <?php
 			// Establish database connection and retrieve restaurant data
-			$db_host = 'localhost';
-			$db_user = 'your_database_username';
-			$db_password = 'your_database_password';
-			$db_name = 'your_database_name';
-			$db_conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+			$db_conn = mysqli_connect("127.0.0.1", "root", "", "webdesign");
 			if (!$db_conn) {
 			    die('Database connection failed: ' . mysqli_connect_error());
 			}
@@ -15,8 +11,8 @@
 			}
 			// Loop through restaurant data and display in HTML
 			while ($row = mysqli_fetch_assoc($result)) {
-			    $name = $row['name'];
-			    $image = $row['image'];
+			    $name = $row['restaurant_name'];
+			    $image = $row['r_image'];
 			    $type = $row['type'];
 			    $rating = $row['rating'];
 			    echo "<div class='restaurant'>";
