@@ -26,6 +26,7 @@
     padding-left: 55px;
     padding-top: 15px;
     width: 40px;
+    border-radius: 50%;
 }
 .logo:hover {
     transform: scale(1.10);
@@ -87,7 +88,7 @@
 }
 .header{
     width: 100%;
-    background-color: #3a4f41 ;
+    background-color: white ;
     display:flex;
     height: 70px;
     align-items: center;
@@ -164,7 +165,7 @@ background-color: #edebe9;
 }
 .footer{
     height: 14.5cm;
-    background-color: #0e382c;
+    background-color:#7CB9E8;
     justify-content: center;
 }
 .footer img{
