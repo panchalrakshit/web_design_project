@@ -14,14 +14,13 @@ if ($conn->connect_error) {
 
 // Get restaurant data from form submission
 $restaurant_name = $_POST['restaurant_name'];
-$restaurant_image=$_POST['r_image'];
+$restaurant_image=$_POST['resataurant_image'];
 $restaurant_type=$_post['restaurant_type'];
-$restaurant_rating=$_post['restaurant_rating'];
 $restaurant_address = $_POST['restaurant_address'];
 $restaurant_phone = $_POST['restaurant_phone'];
 
 // Insert restaurant data into "restaurant" table
-$sql = "INSERT INTO restaurant (restaurant_name, r_image, type, address, phone_no, rating) VALUES ('$restaurant_name', '$restaurant_image', '$restaurant_type','$restaurant_address','$restaurant_phone','$restaurant_rating')";
+$sql = "INSERT INTO restaurant (restaurant_name, r_image, type, address, phone_no) VALUES ('$restaurant_name', '$restaurant_image', '$restaurant_type','$restaurant_address','$restaurant_phone')";
 if ($conn->query($sql) === TRUE) {
   echo "New restaurant added successfully";
 } else {
