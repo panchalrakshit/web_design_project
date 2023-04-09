@@ -2,8 +2,8 @@
 
 // Connect to MySQL server
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 $dbname = "webdesign";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,13 +14,26 @@ if ($conn->connect_error) {
 
 // Get restaurant data from form submission
 $restaurant_name = $_POST['restaurant_name'];
-$restaurant_image=$_POST['resataurant_image'];
-$restaurant_type=$_post['restaurant_type'];
+$target_dir = "restaurant_img"; // Change this to the directory you want to upload the file to
+$target_file = $target_dir . basename($_FILES["restaurant_image"]["name"]);
+if (move_uploaded_file($_FILES["restaurant_image"]["tmp_name"], $target_file)) {
+    $restaurant_image = $target_file;
+} else {
+    $restaurant_image = ""; // Set the image path to an empty string if the upload fails
+}
+
+$restaurant_NORTHINDIAN = isset($_POST['RESTAURANT_NORTHINDIAN']) ? 1 : 0;
+$restaurant_SOUTHINDIAN= isset($_POST['RESTAURANT_SOUTHINDIAN']) ? 1 : 0;
+$restaurant_CHINESE = isset($_POST['RESTAURANT_CHINESE']) ? 1 : 0;
+$restaurant_ITALIAN = isset($_POST['RESTAURANT_ITALIAN']) ? 1 : 0;
+$restaurant_DRINKS= isset($_POST['restaurant_drnks']) ? 1 : 0;
 $restaurant_address = $_POST['restaurant_address'];
 $restaurant_phone = $_POST['restaurant_phone'];
 
 // Insert restaurant data into "restaurant" table
-$sql = "INSERT INTO restaurant (restaurant_name, r_image, type, address, phone_no) VALUES ('$restaurant_name', '$restaurant_image', '$restaurant_type','$restaurant_address','$restaurant_phone')";
+$stmt = $conn->prepare("INSERT INTO restaurant (restaurant_name, r_image, NORTH_INDIAN, SOUTH_INDIAN, ITALIAN, CHINESE, DRINK , address, phone_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssiiiiiss", $restaurant_name, $restaurant_image, $restaurant_northindian, $restaurant_southindian, $restaurant_italian, $restaurant_chinese, $restaurant_drinks, $restaurant_address, $restaurant_phone);
+$stmt->execute();
 if ($conn->query($sql) === TRUE) {
   echo "New restaurant added successfully";
 } else {
