@@ -199,6 +199,14 @@ ul h2{
     padding-left: 30px;
     padding-top: 20px;
 }
+
+.image1 img{
+    padding-left: 60px;
+    padding-top: 50px;
+    width: 70%;
+    height: 60%;
+
+}
 .responsibility{
     padding-left: 4cm;
 }
