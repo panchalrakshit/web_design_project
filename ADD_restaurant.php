@@ -26,28 +26,11 @@ $restaurant_phone = $_POST['restaurant_phone'];
 $stmt = $conn->prepare("INSERT INTO restaurant (restaurant_name, r_image, NORTH_INDIAN, SOUTH_INDIAN, ITALIAN, CHINESE, DRINK, address, phone_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssiiiiiss", $restaurant_name, $restaurant_image, $restaurant_northindian, $restaurant_southindian, $restaurant_italian, $restaurant_chinese, $restaurant_drinks, $restaurant_address, $restaurant_phone);
 
-
-// Create a new menu table for the restaurant
-$menu_table_name = "menu_" . str_replace(' ', '_', strtolower($restaurant_name));
-$sql = "CREATE TABLE $menu_table_name (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  item_name VARCHAR(30) NOT NULL,
-  item_description VARCHAR(50),
-  item_price FLOAT(8,2) NOT NULL
-)";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New menu table created successfully";
-} else {
-  echo "Error creating menu table: " . $conn->error;
-}
 if ($stmt->execute()) {
   echo "New restaurant added successfully";
-  
-  // Redirect to menu.html
-  header("Location: menu.html");
-  exit();
-} else {
+} 
+else 
+{
   echo "Error: " . $stmt->error;
 }
 
