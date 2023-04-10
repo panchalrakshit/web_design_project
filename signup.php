@@ -1,4 +1,11 @@
 <?php
+// Connect to the database
+$conn = mysqli_connect('localhost', 'root', '', 'webdesign');
+
+// Check for errors in the database connection
+if (mysqli_connect_errno()) {
+  die('Failed to connect to database: ' . mysqli_connect_error());
+}
 
 // Get the form data
 $name = $_POST['name'];
@@ -19,14 +26,6 @@ $password = mysqli_real_escape_string($conn, $password);
 // Hash the password for security
 $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
-// Connect to the database
-$conn = mysqli_connect('127.0.0.1', 'root', '', 'webdesign');
-
-// Check for errors in the database connection
-if (mysqli_connect_errno()) {
-  die('Failed to connect to database: ' . mysqli_connect_error());
-}
-
 // Insert the data into the "userdata" table
 $query = "INSERT INTO userdata (name, username, email, address, phone, password) VALUES ('$name', '$username', '$email', '$address', '$phone', '$password_hashed')";
 $result = mysqli_query($conn, $query);
@@ -39,4 +38,7 @@ if (!$result) {
 // Close the database connection
 mysqli_close($conn);
 
+// Redirect the user to the login page
+header("Location: login.html");
+exit;
 ?>
