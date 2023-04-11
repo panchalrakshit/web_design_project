@@ -1,57 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Restaurant List</title>
-	<style>
-		.container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			margin-top: 20px;
-		}
-		.restaurant {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin: 10px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			box-shadow: 0px 0px 5px #ccc;
-			cursor: pointer;
-		}
-		.restaurant img {
-			max-width: 100%;
-			max-height: 200px;
-			object-fit: cover;
-			border-radius: 5px;
-			margin-bottom: 10px;
-		}
-		.restaurant-name {
-			font-size: 20px;
-			font-weight: bold;
-			margin-bottom: 5px;
-		}
-		.restaurant-type {
-			font-size: 16px;
-			margin-bottom: 5px;
-		}
-		.restaurant-rating {
-			font-size: 14px;
-			color: #666;
-		}
-	</style>
+	<title>Add Menu - Restaurant</title>
 </head>
 <body>
-	<h1>Restaurant List</h1>
-	<div class="container">
-		
-	</div>
-	<script>
-		function showMenu(restaurantName) {
-			window.location.href = "menu.php?restaurant=" + restaurantName;
-		}
-	</script>
+	<h2>Add Menu</h2>
+	<form action="add_menu.php" method="POST">
+		<label for="restaurant_id">Restaurant ID:</label>
+		<input type="text" id="restaurant_id" name="restaurant_id"><br><br>
+
+		<label for="item_name">Item Name:</label>
+		<input type="text" id="item_name" name="item_name"><br><br>
+
+		<label for="item_image">Item Image:</label>
+		<input type="file" id="item_image" name="item_image"><br><br>
+
+		<label for="item_price">Item Price:</label>
+		<input type="text" id="item_price" name="item_price"><br><br>
+
+		<label for="item_description">Item Description:</label>
+		<textarea id="item_description" name="item_description"></textarea><br><br>
+
+		<label for="cuisine">Cuisine:</label>
+		<select id="cuisine" name="cuisine">
+			<option value="NORTHINDIAN">North Indian</option>
+			<option value="SOUTHINDIAN">South Indian</option>
+			<option value="CHINESE">Chinese</option>
+			<option value="ITALIAN">Italian</option>
+			<option value="DRINKS">Drinks</option>
+		</select><br><br>
+
+		<input type="submit" value="Add Item">
+	</form>
 </body>
 </html>
