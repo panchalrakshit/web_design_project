@@ -1,0 +1,24 @@
+.founder img{
+    width:5cm;
+    height: 5cm;
+    border-radius: 50%;
+}
+.inner{
+    display: flex;
+    padding-top: 5%;
+    height:25cm;
+    width:25cm;
+    background-color:whitesmoke ;
+    justify-content: center;
+    border-radius: 5%;
+}
+.outer{
+    padding-top: 3cm;
+    background-color: #7CB9E8;
+}
+.founder{
+    width:50%;
+}
+.partner{
+    width:50%;
+}

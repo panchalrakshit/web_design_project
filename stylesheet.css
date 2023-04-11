@@ -181,6 +181,7 @@ background-color: #edebe9;
 }
 .aboutus{
     display: flex;
+    cursor: pointer;
 }
 .ul{
     padding-left: 185px;
