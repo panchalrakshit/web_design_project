@@ -267,3 +267,6 @@ ul h2{
 .end h4:hover{
     color: #3a4f41;
 }
+.ft{
+    text-decoration: none;
+}
