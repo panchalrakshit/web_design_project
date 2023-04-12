@@ -1,3 +1,13 @@
+<?php
+     require_once"connection.php"
+// Retrieve top 5 restaurants from the database
+$sql = "SELECT * FROM restaurants ORDER BY rating DESC LIMIT 5";
+$result = $conn->query($sql);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,63 +100,22 @@
     </div>
     <div class="coffee" align="center">
         <h2>TOP Restaurants</h2>
-        <div class="listitems">
-            <a href="northindian.html">
-            <div class="item1">
-                <div class="product"align="center">
-                    <img width=" 110px" height="110px" alt="northindian dishes"
-                        src="/SRCIMG/NORTHINDIAN.jpg">
-                </div>    
-                <div align="center"class="product">    
-                    <p>NORTH INDIAN CUISINES</p>
-                </div>
+        <?php
+        while($row=mysqli_fetch_assoc=$result){
+
+        ?>
+        <div class="card">
+            <div class image>
+                <img src="<?php echo $row["r_img"];?>" alt="">
+				<div class="caption">
+                <p class="product_name"><?php echo $row["restaurant_name"];?></p>
+				<p class="product_name"><b><?php echo $row["rating"];?></b></p>
             </div>
-            </a>
-            <a href="southindian.html">
-            <div class="item2">
-                <div align="center"class="product">
-                    <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
-                        src="SRCIMG/SOUTH.jpg">
-                </div>
-                <div align="center"class="product">      
-                    <p>SOUTH INDIAN CUISINES</p>
-                </div>
-            </div>
-            </a>
-            <a href="chinese.html">
-            <div class="item3">
-                <div align="center"class="product">
-                    <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
-                    src="SRCIMG/CHINESE.jpg">
-                </div>
-                <div align="center"class="product">
-                    <p>CHINESE CUISINES</p>
-                </div>
-            </div>
-            </a>
-            <a href="ITALIAN.html">
-            <div class="item4">
-                <div align="center"class="product">
-                    <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
-                        src="SRCIMG/ITALIAN.jpg">
-                </div>
-                <div align="center"class="product">    
-                    <p class="ft">ITALIAN  CUISINES</p>
-                </div>
-            </div>
-            </a>
-            <a href="drinks.html">
-            <div class="item5">
-                <div align="center"class="product">
-                    <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
-                        src="SRCIMG/cold-coffee-2.jpg">
-                </div>
-                <div align="center"class="product">
-                    <p>DRINKS</p>
-                </div>
-            </div>
-            </a>
+            
         </div>
+        <?php
+         }
+        ?>
     </div>
     
     <div class="coffee" align="center">

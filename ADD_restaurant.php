@@ -38,7 +38,7 @@ else
 
 // Close MySQL connection
 $conn->close();
-header("Location: menu.html");
+header("Location: main.html");
 exit();
 
 ?>
