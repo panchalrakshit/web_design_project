@@ -22,7 +22,7 @@ $result = $conn->query($sql);
             <div class="logoo"><img class="logo" src="SRCIMG/logo-png.png" alt="Logo"></a></div>
             <ul class="list">
                 <li><a href="main.php">Home</a></li>
-                <li><a href="Restaurants.html">Restaurants</a></li>
+                <li><a href="Restaurants.php">Restaurants</a></li>
                 <li><a href="#Order">Order</a></li>
                 <li><a href="pay.html">Pay</a></li>
                 <li><a onclick="location.href='aboutus.html';">Aboutus</a></li>
@@ -105,7 +105,7 @@ $result = $conn->query($sql);
             <a href="northindian.php">
             <div class="item1">
                 <div class="product"align="center">
-                    <img src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
+                    <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
                 </div>    
                 <div align="center" class="product">    
                     <p><?php echo $row['restaurant_name']; ?></p>
@@ -133,7 +133,7 @@ $result = $conn->query($sql);
             <div class="item1">
                 <div class="product"align="center">
                     <img width=" 110px" height="110px" alt="northindian dishes"
-                        src="/SRCIMG/d4.jpg">
+                        src="SRCIMG/d4.jpg">
                 </div>    
                 <div align="center"class="product">    
                     <p>PANCHMUKHI</p>

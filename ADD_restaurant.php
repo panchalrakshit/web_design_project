@@ -23,7 +23,7 @@ $restaurant_address = $_POST['restaurant_address'];
 $restaurant_phone = $_POST['restaurant_phone'];
 
 // Insert restaurant data into "restaurant" table
-$stmt = $conn->prepare("INSERT INTO restaurant (restaurant_name, r_image, north_indian, south_indian, italian, chinese, drink, address, phone_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO restaurant (restaurant_name, r_image, northindian, southindian, italian, chinese, drink, address, phone_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssiiiiiss", $restaurant_name, $restaurant_image, $restaurant_northindian, $restaurant_southindian, $restaurant_italian, $restaurant_chinese, $restaurant_drinks, $restaurant_address, $restaurant_phone);
 
 
@@ -38,7 +38,7 @@ else
 
 // Close MySQL connection
 $conn->close();
-header("Location: main.html");
+header("Location: main.php");
 exit();
 
 ?>

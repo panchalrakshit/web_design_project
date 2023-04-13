@@ -68,6 +68,7 @@ $result = $conn->query($sql);
             <h1>NORTH INDIAN Restaurants</h1>
         </div>
     </div>
+	
 	 <?php
         while($row=mysqli_fetch_assoc($result)){
         ?>
@@ -75,7 +76,7 @@ $result = $conn->query($sql);
             <a href="northindian.php">
             <div class="item1">
                 <div class="product"align="center">
-                    <img src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
+                    <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
                 </div>    
                 <div align="center" class="product">    
                     <p><?php echo $row['restaurant_name']; ?></p>

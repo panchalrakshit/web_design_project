@@ -12,6 +12,11 @@ a{
     display: flex;
     position: fixed;
     background-color: whitesmoke;
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 .LOGIN{
         display: flex;
@@ -121,6 +126,7 @@ a{
 }
 .listitems{
     display: flex;
+	position: fixed;
     align-items: center;
     justify-content: center;
     height: 50%;
