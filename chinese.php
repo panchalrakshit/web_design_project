@@ -1,7 +1,7 @@
 <?php
      require_once"connection.php";
 // Retrieve top 5 restaurants from the database
-$sql = "SELECT * FROM restaurant WHERE ITALIAN = true";
+$sql = "SELECT * FROM restaurant WHERE CHINESE = true";
 $result = $conn->query($sql);
 
 ?>
@@ -11,7 +11,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITALIAN Restaurants | TASTE ON WAY</title>
+    <title>CHINESE Restaurants | TASTE ON WAY</title>
     <link rel="stylesheet" href="stylesheet.css">
     <style>
         /* CSS styling for the table */
@@ -65,7 +65,7 @@ $result = $conn->query($sql);
             <div class="searchbox"><input type="search" class="search" placeholder="Looking for something specific"></div>
         </div>
         <div class="header">
-            <h1>ITALIAN Restaurants</h1>
+            <h1>CHINESE Restaurants</h1>
         </div>
     </div>
 	 <?php
