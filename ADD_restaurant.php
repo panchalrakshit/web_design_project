@@ -21,7 +21,7 @@ $restaurant_italian = isset($_POST['cuisine']) && in_array('ITALIAN', $_POST['cu
 $restaurant_drinks = isset($_POST['cuisine']) && in_array('DRINKS', $_POST['cuisine']) ? 1 : 0;
 $restaurant_address = $_POST['restaurant_address'];
 $restaurant_phone = $_POST['restaurant_phone'];
-
+global $restaurant_name;
 // Insert restaurant data into "restaurant" table
 $stmt = $conn->prepare("INSERT INTO restaurant (restaurant_name, r_image, northindian, southindian, italian, chinese, drink, address, phone_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssiiiiiss", $restaurant_name, $restaurant_image, $restaurant_northindian, $restaurant_southindian, $restaurant_italian, $restaurant_chinese, $restaurant_drinks, $restaurant_address, $restaurant_phone);
