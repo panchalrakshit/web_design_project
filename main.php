@@ -102,7 +102,7 @@ $result = $conn->query($sql);
     while($row=mysqli_fetch_assoc($result)){
     ?>
     <div class="listitems1">
-        <a href="menu.php?restaurant=<?php echo urlencode($row['restaurant_name']); ?>">
+        <a href="leelapalace.html">
             <div class="item1">
                 <div class="product"align="center">
                     <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
