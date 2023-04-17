@@ -102,7 +102,7 @@ $result = $conn->query($sql);
     <?php
     while($row=mysqli_fetch_assoc($result)){
     ?>
-        <a href="leelapalace.html">
+        <a href="menu_show.php">
             <div class="item1">
                 <div class="product"align="center">
                     <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
@@ -130,7 +130,7 @@ $result = $conn->query($sql);
         <h2>WEEKLY SPECIALS</h2>
         <H3 align="left">FLAT 50% DISCOUNT ON FIRST ORDER</H3>
         <div class="listitems">
-            <a href="northindian.html">
+            <a href="menu_show.php">
             <div class="item1">
                 <div class="product"align="center">
                     <img width=" 110px" height="110px" alt="northindian dishes"
@@ -141,7 +141,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="southindian.html">
+            <a href="menu_show.php">
             <div class="item2">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -152,7 +152,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="chinese.html">
+            <a href="menu_show.php">
             <div class="item3">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -163,7 +163,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="ITALIAN.html">
+            <a href="menu_show.php">
             <div class="item4">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -174,7 +174,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="drinks.html">
+            <a href="menu_show.php">
             <div class="item5">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
