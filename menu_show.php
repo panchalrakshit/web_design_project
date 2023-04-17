@@ -1,14 +1,13 @@
 <?php
      require_once"connection.php";
-// Retrieve top 5 restaurants from the database
-$sql = "SELECT * FROM restaurant WHERE NORTHINDIAN = true";
+$sql = "SELECT * FROM menu";
 $result = $conn->query($sql);
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>North Indian Restaurant List</title>
+    <title>Menu List</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,21 +35,26 @@ $result = $conn->query($sql);
         <div class="know"><button type="menu" class="know1"><b>LOGIN/SIGNUP</b></button></div>
     </div>
     
-    <div class="h2" align="center"><h1>North Indian Restaurant List</h1>
+<div class="h2" align="center"><h1>Menu List</h1>
     </div>
     <div class="container"></div>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<div class="listitems">
 	<?php
         while($row=mysqli_fetch_assoc($result)){
         ?>
-		<div class="listitems">
-            <a href="menu_show.php">
+            <a href="#">
             <div class="item1">
                 <div class="product"align="center">
-                    <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
+                    <img width="150px" height="150px" src="/web_design_project-main/admin/<?php echo $row['m_image']; ?>" alt="<?php echo $row['name']; ?>">
                 </div>    
                 <div align="center" class="product">    
-                    <p><?php echo $row['restaurant_name']; ?></p>
+                    <p><?php echo $row['name']; ?></p>
+					<p>₹<?php echo $row['price'];?></p>
+					<form action="add_to_cart.php" method="post">
+                     <input type="hidden" name="item_id" value="<?php echo $row['m_id']; ?>">
+                     <button type="submit">Add to Cart</button>
+                    </form>
                 </div>
             </div>
             </a>
@@ -58,7 +62,7 @@ $result = $conn->query($sql);
         <?php
          }
         ?>
-
+	</div>
     
 	<style>
 		body {
