@@ -1,14 +1,20 @@
 <?php
-     require_once"connection.php";
+ require_once "connection.php";
+
+session_start();
+$name="welcome";
+
+if(isset($_SESSION['u_id'])){
+    $name = $_SESSION['name'];
+}
+
 // Retrieve top 5 restaurants from the database
 $sql = "SELECT * FROM restaurant ORDER BY rating DESC LIMIT 5";
 $result = $conn->query($sql);
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,17 +29,24 @@ $result = $conn->query($sql);
             <ul class="list">
                 <li><a href="main.php">Home</a></li>
                 <li><a href="Restaurants.php">Restaurants</a></li>
-                <li><a href="#Order">Order</a></li>
+                <li><a href="cart.php">Order</a></li>
                 <li><a href="pay.html">Pay</a></li>
                 <li><a onclick="location.href='aboutus.html';">Aboutus</a></li>
             </ul>
         </div>
         <div class="navlist-right">
-            <div class="searchbox"><input type="search" class="search" placeholder="  Looking for something specific">
-            </div>
+            <div class="searchbox"><input type="search" class="search" placeholder="  Looking for something specific"></div>
         </div>
         <div class="header">
-            <div class="know"><button type="menu" onclick="location.href='login.html';" class="know1"><b>LOGIN/SIGNUP</b></button></div>
+            <?php if ($name != "") { ?>
+                <div class="know">
+                    <button type="menu" class="know1"><b><?php echo $name; ?></b></button>
+                </div>
+            <?php } else { ?>
+                <div class="know">
+                    <button type="menu" onclick="location.href='login.php';" class="know1"><b>LOGIN/SIGNUP</b></button>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <div class="menu a">
@@ -102,8 +115,8 @@ $result = $conn->query($sql);
     <?php
     while($row=mysqli_fetch_assoc($result)){
     ?>
-        <a href="leelapalace.html">
-            <div class="item1">
+        <a href="menu_show.php">
+            <div class="item2">
                 <div class="product"align="center">
                     <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
                 </div>    
@@ -118,7 +131,7 @@ $result = $conn->query($sql);
     </div>
 </div>
 
-        <div class="barista">
+        <div class="barista" align="center">
             <h2>MORE ABOUT RESTAURANTS</h2>
             <div align="center" class="adv">
                 <img class="img1" src="SRCIMG/r6.jpg" alt="img">
@@ -130,8 +143,8 @@ $result = $conn->query($sql);
         <h2>WEEKLY SPECIALS</h2>
         <H3 align="left">FLAT 50% DISCOUNT ON FIRST ORDER</H3>
         <div class="listitems">
-            <a href="northindian.html">
-            <div class="item1">
+            <a href="menu_show.php">
+            <div class="item2">
                 <div class="product"align="center">
                     <img width=" 110px" height="110px" alt="northindian dishes"
                         src="SRCIMG/d4.jpg">
@@ -141,7 +154,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="southindian.html">
+            <a href="menu_show.php">
             <div class="item2">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -152,7 +165,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="chinese.html">
+            <a href="menu_show.php">
             <div class="item3">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -163,7 +176,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="ITALIAN.html">
+            <a href="menu_show.php">
             <div class="item4">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168=""  width="110px" height="110px" alt="Handcrafted Curations" fetchpriority="high"
@@ -174,7 +187,7 @@ $result = $conn->query($sql);
                 </div>
             </div>
             </a>
-            <a href="drinks.html">
+            <a href="menu_show.php">
             <div class="item5">
                 <div align="center"class="product">
                     <img _ngcontent-kwr-c168="" width="110px"  height="110px" alt="Handcrafted Curations" fetchpriority="high"
