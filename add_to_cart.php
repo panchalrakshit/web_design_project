@@ -17,7 +17,8 @@
             $_SESSION['cart'][$item_id] = array(
                 "name" => $row['name'],
                 "price" => $row['price'],
-                "quantity" => 1
+                "quantity" => 1,
+                "image" => $row['image'] // fetch the image from the database
             );
         }
         

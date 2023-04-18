@@ -20,7 +20,7 @@ $result = $conn->query($sql);
             <ul class="list">
                 <li><a href="main.php">Home</a></li>
                 <li><a href="Restaurants.php">Restaurants</a></li>
-                <li><a href="#Order">Order</a></li>
+                <li><a href="cart.php">Order</a></li>
                 <li><a href="/starbucks.html/pay.html">Pay</a></li>
                 <li><a href="#Store">Store</a></li>
             </ul>
