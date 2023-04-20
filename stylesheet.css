@@ -29,13 +29,16 @@ a{
     justify-content: center;
 }
 .logoo{
+    padding-top: 12px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
     width: 10%;
     height: 50px;
 }
-.logo{
-    padding-left: 55px;
-    padding-top: 15px;
+.logoo img{
     width: 40px;
+    height: 45px;
     border-radius: 50%;
 }
 .logo:hover {
@@ -97,8 +100,8 @@ a{
     height: 35px;
     border-radius: 50px;
 }
-.search[type=text]{
-    padding: 0px 20px 0px 0px;
+.search[type="search"i]{
+    padding: 0px 0px 0px 20px;
 }
 .header{
     width: 100%;
