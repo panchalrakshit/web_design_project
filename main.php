@@ -20,7 +20,7 @@ $result = $conn->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-    <title>Dashboard | TASTE ON WAY</title>
+    <title>TASTE ON WAY | ORDER ASAP</title>
 </head>
 <body class="body">
     <div class="navbar">

@@ -97,6 +97,9 @@ a{
     height: 35px;
     border-radius: 50px;
 }
+.search[type=text]{
+    padding: 0px 20px 0px 0px;
+}
 .header{
     width: 100%;
     background-color: white ;
