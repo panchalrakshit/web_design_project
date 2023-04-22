@@ -22,20 +22,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if a user with the given email was found
     if ($result->num_rows == 1) {
-      $row = $result->fetch_assoc();
-      
-      // Check if the hashed password matches the one in the database
-      if (password_verify($password, $row['password'])) {
-        $_SESSION['user_id'] = $row['u_id'];
-        header("Location: main.php");
-        exit();
-      } else {
-        // Passwords don't match, so show an error message
+        $row = $result->fetch_assoc();
+
+        // Check if the hashed password matches the one in the database
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['u_id'];
+            $_SESSION['user_name'] = $row['name']; // Store user's name in the session
+            header("Location: main.php");
+            exit();
+        } else {
+            // Passwords don't match, so show an error message
+            $error_message = "Incorrect email or password";
+        }
+    } else {
         $error_message = "Incorrect email or password";
-      }
-    }
-    else {
-      $error_message = "Incorrect email or password";
     }
 
     // Close the SQL statement

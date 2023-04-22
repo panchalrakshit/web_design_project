@@ -1,11 +1,25 @@
 <?php
- require_once "connection.php";
+require_once "connection.php";
 
+// Start the session
 session_start();
-$name="welcome";
 
-if(isset($_SESSION['u_id'])){
-    $name = $_SESSION['name'];
+// Check if the user is logged in
+if(isset($_SESSION['user_id'])) {
+  // User is logged in
+  $user_id = $_SESSION['user_id'];
+  // Retrieve the name of the user from the database
+  $sql = "SELECT name FROM userdata WHERE u_id = $user_id";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $name = $row['name'];
+  // Display the name of the user and the logout button
+  $login_button = '<div class="logout"><form action="logout.php" method="POST"><button type="submit" name="logout">Logout</button></form></div>';
+  $user_info = '<div class="user-info">Welcome, ' . $name . '</div>';
+} else {
+  // User is not logged in
+  $login_button = '<div class="login"><button type="button" onclick="location.href=\'login.php\';"><b>LOGIN/SIGNUP</b></button></div>';
+  $user_info = '';
 }
 
 // Retrieve top 5 restaurants from the database
@@ -37,16 +51,9 @@ $result = $conn->query($sql);
         <div class="navlist-right">
             <div class="searchbox"><input type="search" class="search" placeholder="  Looking for something specific"></div>
         </div>
-        <div class="header">
-            <?php if ($name != "") { ?>
-                <div class="know">
-                    <button type="menu" class="know1"><b><?php echo $name; ?></b></button>
-                </div>
-            <?php } else { ?>
-                <div class="know">
-                    <button type="menu" onclick="location.href='login.php';" class="know1"><b>LOGIN/SIGNUP</b></button>
-                </div>
-            <?php } ?>
+        <div class="list" style="color: black;" align='center'>
+            <?php echo $user_info; ?>
+            <?php echo $login_button; ?>
         </div>
     </div>
     <div class="menu a">
@@ -205,7 +212,7 @@ $result = $conn->query($sql);
     <div align="center"class="footer">
         <div class="footerin">
             <ul class="aboutus">
-                <div class="image"><img src="SRCIMG/logo-login.png" alt="image"><h2 class="lname">TASTE ON WAY</h2></div>
+                <div class="image"><img src="SRCIMG/logo-login.png" alt="image"><h2 class="lname"></h2></div>
                 <div class="ul">
                     <h2>About us</h2>
                     <li><a href="#Our Heritage">Our Heritage</a></li>

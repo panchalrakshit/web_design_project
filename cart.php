@@ -4,8 +4,6 @@ require_once "connection.php";
 ?>
 
 <!DOCTYPE html>
-<html>
-<head><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +41,7 @@ require_once "connection.php";
         $item_ids = implode(",", array_keys($_SESSION['cart']));
         $sql = "SELECT * FROM menu WHERE m_id IN ($item_ids)";
         $result = $conn->query($sql);
+        $total = 0;
         while($row = mysqli_fetch_assoc($result)) {
             $item_id = $row['m_id'];
             $item_quantity = $_SESSION['cart'][$item_id]['quantity'];
@@ -50,6 +49,7 @@ require_once "connection.php";
             $item_price = $row['price'];
 			$image=$row['m_image'];
             $item_total = $item_price * $item_quantity;
+            $total += $item_total;
             echo "<div class='item2'>";
             echo "<div class='product' align='center'>";
             echo "<img width='150px' height='150px' src='$image' alt=''>";
@@ -63,12 +63,13 @@ require_once "connection.php";
             echo "</form>";
             echo "</div>";
             echo "</div>";
-        
-    
-		}
-	}
+        }
+        echo"</div>";
+        echo"</div>";
+        echo "<div class='total' align='center'>";
+        echo "<p>Total: $total</p>";
+        echo "</div>";
+        echo "<button class='pay-button' onclick=\"location.href='pay.html';\">Pay</button>";
+      }
     ?>
-</div>
-</div>
-</body>
-</html>
+    

@@ -308,3 +308,32 @@ ul h2{
 .ft{
     text-decoration: none;
 }
+.total {
+    margin-top: 50px; /* add some space between the items and the total */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .total p {
+    margin-bottom: 10px; /* add some space between the total and the "Pay" button */
+  }
+  
+  .pay-button {
+    display: block;
+    width: 150px;
+    height: 50px;
+    margin: 20px auto 0; /* center the button horizontally and add some space on top */
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pay-button:hover {
+    background-color: #f57c00;
+  }
+  

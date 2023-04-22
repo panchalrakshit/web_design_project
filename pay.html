@@ -4,41 +4,131 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="pay.css" rel="stylesheet">
     <title>Payment</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            padding: 20px;
+        }
+
+        .card p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom: 2px solid #1E90FF;
+        }
+
+        .btn {
+            background-color: #1E90FF;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #4169E1;
+        }
+
+        .btn .fas {
+            margin-left: 10px;
+        }
+
+        /* additional styles */
+        .text {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .col-12 {
+            margin-bottom: 20px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .card {
+                padding: 40px;
+            }
+
+            .form-control {
+                font-size: 18px;
+            }
+
+            .btn {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container p-0">
-        <div class="card px-4">
-            <p class="h8 py-3">Payment Details</p>
-            <div class="row gx-3">
+    <div class="container">
+        <div class="card">
+            <p>Payment Details</p>
+            <div class="row">
                 <div class="col-12">
                     <div class="d-flex flex-column">
-                        <p class="text mb-1">Person Name</p>
-                        <input class="form-control mb-3" type="text" placeholder="Name" value="YOUR NAME">
+                        <p class="text">Person Name</p>
+                        <input class="form-control" type="text" placeholder="Name" value="YOUR NAME">
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="d-flex flex-column">
-                        <p class="text mb-1">Card Number</p>
-                        <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                        <p class="text">Card Number</p>
+                        <input class="form-control" type="text" placeholder="1234 5678 4356 7878">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="d-flex flex-column">
-                        <p class="text mb-1">Expiry</p>
-                        <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                        <p class="text">Expiry</p>
+                        <input class="form-control" type="text" placeholder="MM/YYYY">
                     </div>
                 </div>
+               
                 <div class="col-6">
                     <div class="d-flex flex-column">
-                        <p class="text mb-1">CVV/CVC</p>
-                        <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                        <p class="text">CVV/CVC</p>
+                        <input class="form-control" type="password" placeholder="***">
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="btn btn-primary mb-3">
-                        <span class="ps-3" align="center">PAY</span>
+                    <div class="btn">
+                        <span>PAY</span>
                         <span class="fas fa-arrow-right"></span>
                     </div>
                 </div>
@@ -47,3 +137,4 @@
     </div>
 </body>
 </html>
+
