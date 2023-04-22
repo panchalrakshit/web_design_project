@@ -40,10 +40,11 @@ $result = $conn->query($sql);
     </div>
     <div class="container"></div>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<div class="listitems">
 	<?php
         while($row=mysqli_fetch_assoc($result)){
         ?>
-		<div class="listitems">
+	
             <a href="menu_show.php">
             <div class="item1">
                 <div class="product"align="center">
@@ -58,6 +59,7 @@ $result = $conn->query($sql);
         <?php
          }
         ?>
+	</div>
 
     
 	<style>

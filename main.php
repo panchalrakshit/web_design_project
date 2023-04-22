@@ -50,10 +50,10 @@ $result = $conn->query($sql);
         </div>
         <div class="navlist-right">
             <div class="searchbox"><input type="search" class="search" placeholder="  Looking for something specific"></div>
-        </div>
-        <div class="list" style="color: black;" align='center'>
+        <div class="searchbox" align='center'>
             <?php echo $user_info; ?>
             <?php echo $login_button; ?>
+        </div>
         </div>
     </div>
     <div class="menu a">
@@ -124,7 +124,7 @@ $result = $conn->query($sql);
     ?>
         <a href="menu_show.php">
             <div class="item2">
-                <div class="product"align="center">
+                <div class="product" align="center">
                     <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">
                 </div>    
                 <div align="center" class="product">    

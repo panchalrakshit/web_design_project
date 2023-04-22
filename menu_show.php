@@ -45,7 +45,7 @@ $result = $conn->query($sql);
         ?>
             <a href="#">
             <div class="item1">
-                <div class="product"align="center">
+                <div class="product" align="center">
                     <img width="150px" height="150px" src="/web_design_project-main/admin/<?php echo $row['m_image']; ?>" alt="<?php echo $row['name']; ?>">
                 </div>    
                 <div align="center" class="product">    
