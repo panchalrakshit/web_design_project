@@ -18,12 +18,12 @@
                 "name" => $row['name'],
                 "price" => $row['price'],
                 "quantity" => 1,
-                "image" => $row['image'] // fetch the image from the database
+                "image" => $row['image']
             );
         }
         
         // redirect back to the menu page
-        header("Location: menu_show.php");
+        header("Location: cart.php");
         exit();
     }
 ?>

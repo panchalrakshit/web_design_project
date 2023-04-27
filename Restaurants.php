@@ -45,7 +45,7 @@ $result = $conn->query($sql);
         while($row=mysqli_fetch_assoc($result)){
         ?>
 		
-            <a href="menu_show.php">
+		    <a href="menu_show.php?r_no=<?php echo $row['r_no']; ?>">
             <div class="item1">
                 <div class="product"align="center">
                     <img width="150px" height="150px" src="<?php echo $row['r_image']; ?>" alt="<?php echo $row['restaurant_name']; ?>">

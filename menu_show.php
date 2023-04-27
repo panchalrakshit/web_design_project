@@ -1,13 +1,27 @@
 <?php
-     require_once"connection.php";
-$sql = "SELECT * FROM menu";
-$result = $conn->query($sql);
+    require_once "connection.php";
 
+    if(isset($_GET['r_no'])){
+        $restaurant_id = $_GET['r_no'];
+    } else {
+        exit();
+    }
+    
+    // Fetch the restaurant name for display in header
+    $restaurant_sql = "SELECT restaurant_name FROM restaurant WHERE r_no ='$restaurant_id'";
+    $restaurant_result = $conn->query($restaurant_sql);
+    $restaurant_row = $restaurant_result->fetch_assoc();
+    $restaurant_name = $restaurant_row['restaurant_name'];
+
+    // Fetch the menu items for the selected restaurant
+    $menu_sql = "SELECT * FROM menu WHERE r_no='$restaurant_id'";
+    $menu_result = $conn->query($menu_sql);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Menu List</title>
+    <title><?php echo $restaurant_name; ?> Menu</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,40 +45,73 @@ $result = $conn->query($sql);
         </div>
     </nav>
     <div class="header">
-        <h2>LOGIN/SIGNUP</h2>
-        <div class="know"><button type="menu" class="know1"><b>LOGIN/SIGNUP</b></button></div>
+        <h2><?php echo $restaurant_name; ?> MENU</h2>
     </div>
     
-<div class="h2" align="center"><h1>Menu List</h1>
-    </div>
-    <div class="container"></div>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<div class="listitems">
-	<?php
-        while($row=mysqli_fetch_assoc($result)){
-        ?>
-            <a href="#">
-            <div class="item1">
-                <div class="product" align="center">
-                    <img width="150px" height="150px" src="/web_design_project-main/admin/<?php echo $row['m_image']; ?>" alt="<?php echo $row['name']; ?>">
-                </div>    
-                <div align="center" class="product">    
-                    <p><?php echo $row['name']; ?></p>
-					<p>₹<?php echo $row['price'];?></p>
-					<form action="add_to_cart.php" method="post">
-                     <input type="hidden" name="item_id" value="<?php echo $row['m_id']; ?>">
-                     <button type="submit">Add to Cart</button>
-                    </form>
-                </div>
-            </div>
-            </a>
-        
-        <?php
-         }
-        ?>
-	</div>
+    <div class="container1">
+        <div class="listitems1">
+            <?php
+                while($row = $menu_result->fetch_assoc()){
+            ?>
+                <a href="#">
+                    <div class="item2">
+                        <div class="product1" align="center">
+                            <img width="150px" height="150px" src="/web_design_project-main/admin/<?php echo $row['m_image']; ?>" alt="<?php echo $row['name']; ?>">
+                        </div>    
+                        <div align="center" class="product1">    
+                            <p><?php echo $row['name']; ?></p>
+                            <p>Price:₹<?php echo $row['price'];?></p>
+                            <form action="add_to_cart.php" method="post">
+                                <input type="hidden" name="item_id" value="<?php echo $row['m_id']; ?>">
+                                <button type="submit" class="cart-button">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </a>
+            <?php
+                }
+            ?>
+        </div>
+			</div>
+
     
 	<style>
+        .container1 {
+  margin: 20px auto;
+  max-width: 1500px;
+}
+
+.listitems1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item2 {
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  width:250px;
+}
+
+.product1 {
+  margin: 10px 0;
+  color: #171717;
+}
+
+.product1 p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product1 p:last-child {
+  font-size: 16px;
+  font-weight: bold;
+  color: 171717;
+}
+
 		body {
 			margin: 0;
 			font-family: Arial, sans-serif;
@@ -121,6 +168,26 @@ $result = $conn->query($sql);
 			color: #666;
 			text-align: center;
 		}
+        .cart-button {
+           background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 8px; 
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.cart-button:hover {
+  background-color: #3e8e41;
+}
+
+
 	</style>
 </body>
 </html>
